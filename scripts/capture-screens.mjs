@@ -18,8 +18,32 @@ const PASSWORD = 'K6Test@2026SmartRabbit';
 const DESKTOP = { width: 1440, height: 900 };
 const MOBILE = { width: 390, height: 844 };
 
+// Switches the global period selector to the current calendar month so
+// month-scoped widgets (Gastos vs Orçamento) have data.
+async function selectThisMonth(page) {
+  const pill = page.getByText('Últimos 30 dias').first();
+  if (!(await pill.count())) return;
+  await pill.click();
+  await page.waitForTimeout(600);
+  await page.getByText('Este mês', { exact: true }).first().click();
+  await page.waitForTimeout(400);
+  const ok = page.getByRole('button', { name: 'OK' });
+  if (await ok.count()) await ok.click();
+  await page.waitForTimeout(4000);
+  // park the cursor and reset scroll so the shot is clean and from the top.
+  // The app scrolls inside its main panel, not the window.
+  await page.mouse.move(5, 5);
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+    for (const el of document.querySelectorAll('*')) {
+      if (el.scrollTop > 0) el.scrollTop = 0;
+    }
+  });
+  await page.waitForTimeout(1200);
+}
+
 const SHOTS = [
-  { route: '/', name: 'dashboard', viewport: DESKTOP, settle: 6000 },
+  { route: '/', name: 'dashboard', viewport: DESKTOP, settle: 6000, prepare: selectThisMonth },
   { route: '/previsao', name: 'previsao', viewport: DESKTOP, settle: 5000 },
   { route: '/simulacao', name: 'simulacao', viewport: DESKTOP, settle: 5000 },
   { route: '/metas', name: 'metas', viewport: DESKTOP, settle: 4000 },
@@ -54,6 +78,7 @@ for (const viewport of [DESKTOP, MOBILE]) {
   for (const shot of SHOTS.filter((s) => s.viewport === viewport)) {
     await page.goto(`${BASE}${shot.route}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(shot.settle);
+    if (shot.prepare) await shot.prepare(page);
     if (viewport === MOBILE) {
       // close the overlay sidebar drawer if it is open
       await page.keyboard.press('Escape');
