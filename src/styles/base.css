@@ -1,0 +1,228 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.12;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(4.5rem, 10vw, 8.5rem);
+}
+
+.section__title {
+  font-size: clamp(2rem, 5.2vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+}
+
+.section__sub {
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  max-width: 56ch;
+}
+
+.eyebrow {
+  color: var(--green-light);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.78rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  will-change: transform;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--green-deep), var(--green));
+  color: #06130a;
+  box-shadow: 0 8px 28px rgba(92, 184, 92, 0.35);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(92, 184, 92, 0.5);
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(139, 226, 139, 0.04);
+}
+
+.btn--ghost:hover {
+  background: rgba(139, 226, 139, 0.1);
+}
+
+.btn--lg {
+  padding: 1rem 2rem;
+  font-size: 1.08rem;
+}
+
+/* a11y */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--green);
+  color: #06130a;
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* split-text scaffolding */
+[data-split] .word {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: bottom;
+}
+
+[data-split] .word > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* device frames */
+.browser-frame {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0c1a10;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(139, 226, 139, 0.06);
+}
+
+.browser-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.1rem;
+  background: #0a1810;
+  border-bottom: 1px solid var(--line);
+}
+
+.browser-frame__bar .dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.browser-frame__bar .dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2c4633;
+}
+
+.browser-frame__bar .urlbar {
+  flex: 1;
+  max-width: 340px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(139, 226, 139, 0.06);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+}
+
+.phone-frame {
+  position: relative;
+  margin: 0;
+  width: min(320px, 78vw);
+  aspect-ratio: 390 / 800;
+  border-radius: 44px;
+  border: 1px solid var(--line);
+  background: #0a1810;
+  padding: 12px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55);
+}
+
+.phone-frame__screens {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.phone-frame__screens img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.phone-frame__screens img.is-active {
+  opacity: 1;
+}

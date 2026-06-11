@@ -1,0 +1,52 @@
+.import__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.import__steps {
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.import__step {
+  border-left: 3px solid var(--line);
+  padding: 0.9rem 0 0.9rem 1.4rem;
+  opacity: 0.45;
+  transition: opacity 0.35s ease, border-color 0.35s ease;
+}
+
+.import__step.is-active {
+  opacity: 1;
+  border-color: var(--green);
+}
+
+.import__step h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.import__step p {
+  color: var(--text-muted);
+  font-size: 0.97rem;
+  margin: 0;
+}
+
+.import__visual {
+  display: grid;
+  justify-content: center;
+}
+
+@media (max-width: 860px) {
+  .import__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .import__visual {
+    order: -1;
+  }
+}

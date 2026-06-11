@@ -1,0 +1,121 @@
+.hero {
+  position: relative;
+  padding-top: clamp(7rem, 16svh, 10rem);
+  overflow: clip;
+}
+
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero__glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  translate: -50% 0;
+  width: min(1100px, 120vw);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(92, 184, 92, 0.16), transparent 62%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  background: rgba(139, 226, 139, 0.05);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 7.4vw, 5.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  max-width: 15ch;
+  margin-block: 1.2rem 0.4rem;
+}
+
+/* gradient must live on the innermost text node: background-clip
+   does not reach through nested inline-blocks created by the splitter */
+.hero__title,
+.hero__title .word > span {
+  background: linear-gradient(180deg, #fff 55%, #b9e6b9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__sub {
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  max-width: 52ch;
+}
+
+.hero__sub strong {
+  color: var(--green-light);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.hero__mascot {
+  position: absolute;
+  right: max(2vw, calc((100% - var(--container)) / 2 - 60px));
+  bottom: -40px;
+  width: clamp(110px, 14vw, 210px);
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.45));
+  z-index: 2;
+}
+
+.hero__shot {
+  position: relative;
+  width: min(1080px, 92vw);
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  perspective: 1400px;
+  z-index: 1;
+}
+
+.hero__shot .browser-frame {
+  transform: rotateX(10deg) scale(0.96);
+  transform-origin: center top;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(180deg, transparent, var(--bg));
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .hero__mascot {
+    position: static;
+    order: 5;
+    margin-top: 2rem;
+    width: 120px;
+  }
+}

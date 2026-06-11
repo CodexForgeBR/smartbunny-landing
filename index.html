@@ -3,13 +3,315 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartBunny — Finanças pessoais inteligentes</title>
-    <meta name="description" content="O SmartBunny conecta suas contas, entende seus extratos e mostra o futuro do seu dinheiro." />
+    <title>SmartBunny — Seu dinheiro, finalmente sob controle</title>
+    <meta name="description" content="O SmartBunny conecta suas contas via Open Finance, entende seus extratos com IA e mostra o futuro do seu dinheiro — antes de ele acontecer." />
+    <meta property="og:title" content="SmartBunny — Finanças pessoais inteligentes" />
+    <meta property="og:description" content="Conecte suas contas, importe extratos com IA e veja o futuro do seu dinheiro. Feito para o Brasil." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codexforgebr.github.io/smartbunny-landing/" />
+    <meta property="og:image" content="https://codexforgebr.github.io/smartbunny-landing/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#07120a" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-bunny-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-bunny-16.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   </head>
   <body>
-    <main style="display:grid;place-items:center;min-height:100svh;font-family:system-ui;background:#07120a;color:#fff">
-      <h1>SmartBunny 🐰 — em breve</h1>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ======================= NAV ======================= -->
+    <header class="nav" id="nav">
+      <div class="nav__inner container">
+        <a class="nav__brand" href="#" aria-label="SmartBunny — início">
+          <img src="./src/assets/brand/logo.svg" alt="" width="34" height="34" />
+          <span class="nav__wordmark"><b>Smart</b><em>Bunny</em></span>
+        </a>
+        <nav class="nav__links" aria-label="Navegação principal">
+          <a href="#recursos">Recursos</a>
+          <a href="#previsao">Previsão</a>
+          <a href="#seguranca">Segurança</a>
+        </nav>
+        <a class="btn btn--primary nav__cta" href="#cta">Entrar na lista de espera</a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- ======================= HERO ======================= -->
+      <section class="hero" id="hero">
+        <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="container hero__content">
+          <p class="hero__badge" data-reveal>
+            <span aria-hidden="true">🇧🇷</span> Feito para o Brasil — Pix, boleto e Open Finance
+          </p>
+          <h1 class="hero__title" data-split>Seu dinheiro, finalmente sob controle.</h1>
+          <p class="hero__sub" data-reveal>
+            O SmartBunny conecta suas contas, entende seus extratos com IA e mostra
+            o futuro do seu dinheiro — <strong>antes de ele acontecer</strong>.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary btn--lg" href="#cta" data-magnetic>Quero acesso antecipado</a>
+            <a class="btn btn--ghost btn--lg" href="#recursos">Ver como funciona ↓</a>
+          </div>
+          <img
+            class="hero__mascot"
+            src="./src/assets/brand/login-logo-mascot.webp"
+            alt="Mascote do SmartBunny: um coelho verde com um gráfico de crescimento"
+            width="280" height="420"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__shot" id="hero-shot">
+          <figure class="browser-frame" data-tilt>
+            <figcaption class="browser-frame__bar" aria-hidden="true">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="urlbar">app.smartbunny.com.br</span>
+            </figcaption>
+            <img
+              src="./src/assets/screens/dashboard.webp"
+              alt="Painel do SmartBunny mostrando saldo atual, evolução do saldo e gastos por categoria"
+              width="1880" height="1175"
+              fetchpriority="high"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ======================= MARQUEE ======================= -->
+      <section class="marquee" aria-label="Integrações">
+        <p class="marquee__lead container">
+          <strong>500+ instituições</strong> conectadas via Open Finance
+        </p>
+        <div class="marquee__track" id="marquee" aria-hidden="true">
+          <div class="marquee__row">
+            <span class="chip">Pix</span><span class="chip">Boleto</span><span class="chip">Open Finance</span>
+            <span class="chip">Extrato PDF</span><span class="chip">OFX</span><span class="chip">XLS</span>
+            <span class="chip">Cartão de crédito</span><span class="chip">TED &amp; DOC</span>
+            <span class="chip">Recibos</span><span class="chip">Multi-contas</span><span class="chip">Faturas</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= BENTO ======================= -->
+      <section class="bento section" id="recursos">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Recursos</p>
+          <h2 class="section__title" data-split>Um painel. Todas as suas finanças.</h2>
+          <div class="bento__grid">
+            <article class="bento__card bento__card--wide" data-reveal>
+              <h3>Painel unificado</h3>
+              <p>Contas, cartões, faturas e metas em uma visão única — com a evolução do seu saldo dia a dia.</p>
+              <img src="./src/assets/screens/relatorios.webp" alt="Relatórios do SmartBunny com gráfico de receitas e despesas por mês" loading="lazy" width="940" height="588" />
+            </article>
+            <article class="bento__card" data-reveal>
+              <span class="bento__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg>
+              </span>
+              <h3>Sincronização automática</h3>
+              <p>Conecte seus bancos via Open Finance e receba transações em tempo real, sem digitar nada.</p>
+            </article>
+            <article class="bento__card" data-reveal>
+              <span class="bento__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v13m0 0 4-4m-4 4-4-4"/><path d="M4 21h16"/></svg>
+              </span>
+              <h3>Importação com IA</h3>
+              <p>PDF, XLS, OFX ou foto de recibo: a IA entende Pix, boleto e fatura — e categoriza sozinha.</p>
+            </article>
+            <article class="bento__card" data-reveal>
+              <span class="bento__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><circle cx="12" cy="12" r="4"/></svg>
+              </span>
+              <h3>Regras inteligentes</h3>
+              <p>Automatize categorias, favorecidos e transferências com regras que aprendem com você.</p>
+            </article>
+            <article class="bento__card" data-reveal>
+              <span class="bento__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3"/></svg>
+              </span>
+              <h3>Orçamentos por categoria</h3>
+              <p>Limites mensais por categoria, com acompanhamento em tempo real do quanto ainda dá pra gastar.</p>
+            </article>
+            <article class="bento__card bento__card--tall" data-reveal>
+              <h3>Assinaturas sob controle</h3>
+              <p>Netflix, academia, condomínio: tudo que se repete, detectado e projetado no seu fluxo.</p>
+              <img src="./src/assets/screens/transacoes-mobile.webp" alt="Resumo de transações no celular com receitas, despesas e resultado do mês" loading="lazy" width="390" height="844" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= IMPORT AI DEEP-DIVE ======================= -->
+      <section class="import section" id="importacao">
+        <div class="container import__layout">
+          <div class="import__copy">
+            <p class="eyebrow" data-reveal>Importação com IA</p>
+            <h2 class="section__title" data-split>Jogue o extrato. A IA faz o resto.</h2>
+            <ol class="import__steps" id="import-steps">
+              <li class="import__step is-active" data-step="0">
+                <h3>Envie qualquer arquivo</h3>
+                <p>Extrato em PDF, planilha XLS, OFX do seu banco ou até a foto de um comprovante Pix.</p>
+              </li>
+              <li class="import__step" data-step="1">
+                <h3>A IA entende tudo</h3>
+                <p>Datas, valores, favorecidos, boletos e faturas são identificados automaticamente — sem modelo fixo.</p>
+              </li>
+              <li class="import__step" data-step="2">
+                <h3>Pronto: categorizado</h3>
+                <p>As transações chegam organizadas por categoria, com favorecidos e tags. Você só revisa.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="import__visual">
+            <figure class="phone-frame">
+              <div class="phone-frame__screens">
+                <img class="is-active" data-screen="0" src="./src/assets/screens/importacoes-mobile.webp" alt="Tela de importação do SmartBunny com botão Importar" loading="lazy" width="390" height="844" />
+                <img data-screen="1" src="./src/assets/screens/dashboard-mobile.webp" alt="Painel do SmartBunny no celular com saldo atual" loading="lazy" width="390" height="844" />
+                <img data-screen="2" src="./src/assets/screens/transacoes-mobile.webp" alt="Transações categorizadas no celular" loading="lazy" width="390" height="844" />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= FORECAST SHOWPIECE ======================= -->
+      <section class="forecast section" id="previsao">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Previsão &amp; Simulação</p>
+          <h2 class="section__title" data-split>Veja o futuro do seu dinheiro.</h2>
+          <p class="section__sub" data-reveal>
+            Fluxo de caixa projetado com seus agendamentos e assinaturas — e simulações
+            <em>“e se?”</em> para decidir com segurança. E se eu trocar de carro? E se eu ganhar um aumento?
+          </p>
+
+          <div class="forecast__stats" id="forecast-stats" data-reveal>
+            <div class="stat">
+              <span class="stat__label">Saldo hoje</span>
+              <span class="stat__value" data-count="30833">R$ 0</span>
+            </div>
+            <div class="stat stat--accent">
+              <span class="stat__label">Previsto em dezembro</span>
+              <span class="stat__value" data-count="64392">R$ 0</span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Livre após metas</span>
+              <span class="stat__value" data-count="33892">R$ 0</span>
+            </div>
+          </div>
+
+          <div class="forecast__shot" data-reveal>
+            <figure class="browser-frame">
+              <figcaption class="browser-frame__bar" aria-hidden="true">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="urlbar">app.smartbunny.com.br/previsao</span>
+              </figcaption>
+              <img src="./src/assets/screens/previsao.webp" alt="Previsão de saldo do SmartBunny com gráfico de projeção ao longo do ano" loading="lazy" width="1880" height="1175" />
+              <svg class="forecast__line" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+                <path id="forecast-path" d="M20,330 C120,320 180,300 260,290 S420,250 500,220 S700,150 800,110 S950,60 985,40" />
+                <path id="forecast-branch" d="M500,220 C600,210 720,200 820,195 S950,185 985,180" />
+              </svg>
+            </figure>
+          </div>
+
+          <div class="forecast__sim" data-reveal>
+            <div class="forecast__sim-text">
+              <h3>Simule cenários sem risco</h3>
+              <p>
+                Entre no modo simulação, mude o que quiser — salário, contas, metas — e veja o
+                impacto no futuro. Ao sair, tudo volta ao normal. Seus dados reais ficam intactos.
+              </p>
+            </div>
+            <span class="forecast__sim-tag">Modo simulação</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= GOALS & BUDGETS ======================= -->
+      <section class="goals section" id="metas">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Planejamento</p>
+          <h2 class="section__title" data-split>Metas que saem do papel.</h2>
+          <div class="goals__grid">
+            <article class="goals__card" data-reveal>
+              <div class="goals__ring" role="img" aria-label="Meta de reserva de emergência: 62% concluída">
+                <svg viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="52" />
+                  <circle class="ring-fill" id="goal-ring" cx="60" cy="60" r="52" />
+                </svg>
+                <span class="goals__ring-label"><b data-ring-count="62">0</b>%</span>
+              </div>
+              <h3>Reserva de Emergência</h3>
+              <p>Planeje contribuições mensais, reserve com um toque e saiba exatamente quando vai chegar lá.</p>
+              <img src="./src/assets/screens/metas.webp" alt="Lista de metas do SmartBunny com barras de progresso" loading="lazy" width="940" height="588" />
+            </article>
+            <article class="goals__card" data-reveal>
+              <div class="goals__bars" aria-hidden="true">
+                <div class="bar" style="--w: 78%"><i></i><span>Supermercado</span></div>
+                <div class="bar" style="--w: 52%"><i></i><span>Restaurantes</span></div>
+                <div class="bar" style="--w: 31%"><i></i><span>Transporte</span></div>
+              </div>
+              <h3>Orçamento que te avisa</h3>
+              <p>Limites por categoria com progresso em tempo real — antes de estourar, você fica sabendo.</p>
+              <img src="./src/assets/screens/orcamentos.webp" alt="Tela de orçamentos do SmartBunny com limites por categoria" loading="lazy" width="940" height="588" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= SECURITY ======================= -->
+      <section class="security section" id="seguranca">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Segurança</p>
+          <h2 class="section__title" data-split>Segurança de banco. De verdade.</h2>
+          <div class="security__grid">
+            <article class="security__card" data-reveal>
+              <span class="security__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+              </span>
+              <h3>Criptografia de ponta</h3>
+              <p>Autenticação gerenciada pela AWS, tokens de curta duração e criptografia em trânsito e em repouso.</p>
+            </article>
+            <article class="security__card" data-reveal>
+              <span class="security__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              </span>
+              <h3>Somente leitura</h3>
+              <p>A conexão Open Finance é regulada pelo Banco Central e apenas lê seus dados. Nós nunca movimentamos seu dinheiro.</p>
+            </article>
+            <article class="security__card" data-reveal>
+              <span class="security__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+              </span>
+              <h3>Trilha de auditoria</h3>
+              <p>Nada é apagado de verdade sem você saber: todo registro financeiro mantém histórico completo de alterações.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= CTA ======================= -->
+      <section class="cta section" id="cta">
+        <div class="container cta__inner">
+          <img class="cta__mascot" src="./src/assets/brand/login-logo-mascot.webp" alt="" aria-hidden="true" loading="lazy" width="220" height="330" />
+          <h2 class="cta__title" data-split>Comece a multiplicar como um coelho.</h2>
+          <p class="cta__sub" data-reveal>O SmartBunny está chegando. Entre na lista de espera e seja avisado primeiro.</p>
+          <a class="btn btn--primary btn--lg" href="mailto:contato@codexforge.com.br?subject=Lista%20de%20espera%20SmartBunny" data-magnetic data-reveal>
+            Entrar na lista de espera
+          </a>
+        </div>
+      </section>
     </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <a class="nav__brand" href="#" aria-label="SmartBunny">
+          <img src="./src/assets/brand/logo.svg" alt="" width="28" height="28" />
+          <span class="nav__wordmark"><b>Smart</b><em>Bunny</em></span>
+        </a>
+        <p>© 2026 CodexForge — SmartBunny. Feito com 💚 no Brasil.</p>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

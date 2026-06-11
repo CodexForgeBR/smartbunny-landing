@@ -1,0 +1,26 @@
+:root {
+  /* brand */
+  --green: #5cb85c;
+  --green-deep: #4db04d;
+  --green-light: #8be28b;
+  --blue: #2f7af5;
+
+  /* dark surface scale */
+  --bg: #07120a;
+  --bg-raise: #0b1b10;
+  --panel: #0e2014;
+  --line: rgba(139, 226, 139, 0.14);
+
+  /* text */
+  --text: #eef6ef;
+  --text-muted: #9db5a3;
+
+  /* type */
+  --font-heading: 'Maven Pro', 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* layout */
+  --container: 1180px;
+  --radius: 18px;
+  --radius-lg: 26px;
+}

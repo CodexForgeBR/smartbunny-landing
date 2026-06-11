@@ -1,0 +1,109 @@
+.goals__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.goals__card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--bg-raise), var(--panel));
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  overflow: clip;
+}
+
+.goals__card h3 {
+  font-size: 1.3rem;
+}
+
+.goals__card p {
+  color: var(--text-muted);
+}
+
+.goals__card img {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-top: 1.2rem;
+}
+
+.goals__ring {
+  position: relative;
+  width: 110px;
+  margin-bottom: 1.1rem;
+}
+
+.goals__ring svg {
+  width: 110px;
+  height: 110px;
+  transform: rotate(-90deg);
+}
+
+.ring-bg,
+.ring-fill {
+  fill: none;
+  stroke-width: 10;
+}
+
+.ring-bg {
+  stroke: rgba(139, 226, 139, 0.12);
+}
+
+.ring-fill {
+  stroke: var(--green);
+  stroke-linecap: round;
+  stroke-dasharray: 326.7;
+  stroke-dashoffset: 326.7;
+}
+
+.goals__ring-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--green-light);
+}
+
+.goals__bars {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1.4rem;
+}
+
+.goals__bars .bar {
+  position: relative;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(139, 226, 139, 0.08);
+  overflow: clip;
+}
+
+.goals__bars .bar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w);
+  background: linear-gradient(90deg, var(--green-deep), var(--green));
+  border-radius: 9px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.goals__bars .bar span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 0.9rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #eaf6ea;
+}
+
+@media (max-width: 860px) {
+  .goals__grid {
+    grid-template-columns: 1fr;
+  }
+}
