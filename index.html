@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmartBunny — Seu dinheiro, finalmente sob controle</title>
-    <meta name="description" content="O SmartBunny conecta suas contas via Open Finance, organiza seus lançamentos e projeta seu fluxo de caixa — para você ver o futuro do seu dinheiro antes de ele acontecer." />
+    <meta name="description" content="O SmartBunny organiza seus lançamentos, importa extratos e projeta seu fluxo de caixa — para você ver o futuro do seu dinheiro antes de ele acontecer." />
     <meta property="og:title" content="SmartBunny — Finanças pessoais sob controle" />
-    <meta property="og:description" content="Conecte suas contas, organize seus lançamentos e veja seu fluxo de caixa projetado. Feito para o Brasil." />
+    <meta property="og:description" content="Importe extratos, organize seus lançamentos e veja seu fluxo de caixa projetado. Feito para o Brasil." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://codexforgebr.github.io/smartbunny-landing/" />
     <meta property="og:image" content="https://codexforgebr.github.io/smartbunny-landing/og-image.png" />
@@ -31,7 +31,10 @@
           <a href="#previsao">Previsão</a>
           <a href="#seguranca">Segurança</a>
         </nav>
-        <a class="btn btn--primary nav__cta" href="#cta">Entrar na lista de espera</a>
+        <div class="nav__actions" aria-label="Acesso ao SmartBunny">
+          <a class="btn btn--ghost nav__cta nav__cta--secondary" href="https://app.smartbunny.com.br/login">Entrar</a>
+          <a class="btn btn--primary nav__cta" href="https://app.smartbunny.com.br/signup">Criar conta</a>
+        </div>
       </div>
     </header>
 
@@ -42,16 +45,16 @@
         <div class="hero__glow" aria-hidden="true"></div>
         <div class="container hero__content">
           <p class="hero__badge" data-reveal>
-            <span aria-hidden="true">🇧🇷</span> Feito para o Brasil — Pix, boleto e Open Finance
+            <span aria-hidden="true">🇧🇷</span> Feito para o Brasil — Pix, boleto, cartões e extratos
           </p>
           <h1 class="hero__title" data-split>Seu dinheiro, finalmente sob controle.</h1>
           <p class="hero__sub" data-reveal>
-            O SmartBunny conecta suas contas, organiza seus lançamentos e projeta seu
-            fluxo de caixa — você vê o futuro do seu dinheiro <strong>antes de ele acontecer</strong>.
+            O SmartBunny organiza seus lançamentos, importa extratos, controla contas recorrentes
+            e projeta seu fluxo de caixa — você vê o futuro do seu dinheiro <strong>antes de ele acontecer</strong>.
           </p>
           <div class="hero__actions" data-reveal>
-            <a class="btn btn--primary btn--lg" href="#cta" data-magnetic>Quero acesso antecipado</a>
-            <a class="btn btn--ghost btn--lg" href="#recursos">Ver como funciona ↓</a>
+            <a class="btn btn--primary btn--lg" href="https://app.smartbunny.com.br/signup" data-magnetic>Criar conta</a>
+            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/login">Entrar</a>
           </div>
           <img
             class="hero__mascot"
@@ -80,11 +83,11 @@
       <!-- ======================= MARQUEE ======================= -->
       <section class="marquee" aria-label="Integrações">
         <p class="marquee__lead container">
-          <strong>Centenas de instituições</strong> conectadas via Open Finance
+          <strong>Extratos, cartões e contas</strong> organizados em um só lugar
         </p>
         <div class="marquee__track" id="marquee" aria-hidden="true">
           <div class="marquee__row">
-            <span class="chip">Pix</span><span class="chip">Boleto</span><span class="chip">Open Finance</span>
+            <span class="chip">Pix</span><span class="chip">Boleto</span><span class="chip">Assinaturas</span>
             <span class="chip">Extrato PDF</span><span class="chip">OFX</span><span class="chip">XLS</span><span class="chip">CSV</span>
             <span class="chip">Cartão de crédito</span><span class="chip">TED &amp; DOC</span>
             <span class="chip">Multi-contas</span><span class="chip">Faturas</span>
@@ -107,8 +110,8 @@
               <span class="bento__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg>
               </span>
-              <h3>Sincronização automática</h3>
-              <p>Conecte seus bancos via Open Finance e receba transações em tempo real, sem digitar nada.</p>
+              <h3>Importação guiada</h3>
+              <p>Traga seus extratos em PDF, OFX, XLS ou CSV, revise os dados e confirme tudo antes de salvar.</p>
             </article>
             <article class="bento__card" data-reveal>
               <span class="bento__icon" aria-hidden="true">
@@ -205,10 +208,6 @@
                 <span class="urlbar">app.smartbunny.com.br/previsao</span>
               </figcaption>
               <img src="./src/assets/screens/previsao.webp" alt="Previsão de saldo do SmartBunny com gráfico de projeção ao longo do ano" loading="lazy" width="1880" height="1175" />
-              <svg class="forecast__line" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
-                <path id="forecast-path" d="M20,330 C120,320 180,300 260,290 S420,250 500,220 S700,150 800,110 S950,60 985,40" />
-                <path id="forecast-branch" d="M500,220 C600,210 720,200 820,195 S950,185 985,180" />
-              </svg>
             </figure>
           </div>
 
@@ -274,8 +273,8 @@
               <span class="security__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
               </span>
-              <h3>Somente leitura</h3>
-              <p>A conexão Open Finance é regulada pelo Banco Central e apenas lê seus dados. Nós nunca movimentamos seu dinheiro.</p>
+              <h3>Você no controle</h3>
+              <p>Seus dados financeiros entram por importação e revisão explícita. O SmartBunny nunca movimenta seu dinheiro.</p>
             </article>
             <article class="security__card" data-reveal>
               <span class="security__icon" aria-hidden="true">
@@ -293,10 +292,15 @@
         <div class="container cta__inner">
           <img class="cta__mascot" src="./src/assets/brand/login-logo-mascot.webp" alt="" aria-hidden="true" loading="lazy" width="220" height="330" />
           <h2 class="cta__title" data-split>Comece a multiplicar como um coelho.</h2>
-          <p class="cta__sub" data-reveal>O SmartBunny está chegando. Entre na lista de espera e seja avisado primeiro.</p>
-          <a class="btn btn--primary btn--lg" href="mailto:contato@codexforge.com.br?subject=Lista%20de%20espera%20SmartBunny" data-magnetic data-reveal>
-            Entrar na lista de espera
-          </a>
+          <p class="cta__sub" data-reveal>Crie sua conta e comece agora a organizar lançamentos, recorrências e previsões.</p>
+          <div class="cta__actions" data-reveal>
+            <a class="btn btn--primary btn--lg" href="https://app.smartbunny.com.br/signup" data-magnetic>
+              Criar conta
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/login">
+              Entrar
+            </a>
+          </div>
         </div>
       </section>
     </main>

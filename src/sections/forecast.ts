@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger, reducedMotion } from '../lib/motion';
+import { gsap, reducedMotion } from '../lib/motion';
 
 const brl = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -24,32 +24,4 @@ export function setupForecast(): void {
     });
   }
 
-  // self-drawing projection line + what-if branch over the screenshot
-  const path = document.querySelector<SVGPathElement>('#forecast-path');
-  const branch = document.querySelector<SVGPathElement>('#forecast-branch');
-  if (!path || !branch) return;
-
-  const pathLen = path.getTotalLength();
-  const branchLen = branch.getTotalLength();
-
-  if (reducedMotion) return; // strokes stay visible as authored
-
-  gsap.set(path, { strokeDasharray: pathLen, strokeDashoffset: pathLen });
-  gsap.set(branch, { strokeDasharray: `10 10`, strokeDashoffset: branchLen, opacity: 0 });
-
-  ScrollTrigger.create({
-    trigger: '.forecast__shot',
-    start: 'top 75%',
-    end: 'bottom 55%',
-    scrub: 1,
-    onUpdate(self) {
-      gsap.set(path, { strokeDashoffset: pathLen * (1 - self.progress) });
-      if (self.progress > 0.6) {
-        const p = (self.progress - 0.6) / 0.4;
-        gsap.set(branch, { opacity: 1, strokeDashoffset: branchLen * (1 - p) });
-      } else {
-        gsap.set(branch, { opacity: 0 });
-      }
-    },
-  });
 }
