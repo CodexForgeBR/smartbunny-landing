@@ -1,0 +1,44 @@
+.agenda__layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.agenda__steps {
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.agenda__step {
+  border-left: 3px solid var(--green);
+  padding: 0.9rem 0 0.9rem 1.4rem;
+}
+
+.agenda__step h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.agenda__step p {
+  color: var(--text-muted);
+  font-size: 0.97rem;
+  margin: 0;
+}
+
+.agenda__visual {
+  position: relative;
+}
+
+@media (max-width: 860px) {
+  .agenda__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda__visual {
+    order: -1;
+  }
+}

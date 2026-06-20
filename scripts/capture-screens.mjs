@@ -45,15 +45,11 @@ async function selectThisMonth(page) {
 const SHOTS = [
   { route: '/', name: 'dashboard', viewport: DESKTOP, settle: 6000, prepare: selectThisMonth },
   { route: '/previsao', name: 'previsao', viewport: DESKTOP, settle: 5000 },
-  { route: '/simulacao', name: 'simulacao', viewport: DESKTOP, settle: 5000 },
+  { route: '/agendamentos', name: 'agendamentos', viewport: DESKTOP, settle: 5000 },
   { route: '/metas', name: 'metas', viewport: DESKTOP, settle: 4000 },
   { route: '/orcamentos', name: 'orcamentos', viewport: DESKTOP, settle: 12000 },
   { route: '/relatorios', name: 'relatorios', viewport: DESKTOP, settle: 5000 },
-  { route: '/transacoes', name: 'transacoes', viewport: DESKTOP, settle: 4000 },
-  { route: '/importacoes', name: 'importacoes-mobile', viewport: MOBILE, settle: 4000 },
-  { route: '/transacoes', name: 'transacoes-mobile', viewport: MOBILE, settle: 4000 },
-  { route: '/metas', name: 'metas-mobile', viewport: MOBILE, settle: 4000 },
-  { route: '/', name: 'dashboard-mobile', viewport: MOBILE, settle: 6000 },
+  { route: '/agendamentos', name: 'agendamentos-mobile', viewport: MOBILE, settle: 5000 },
 ];
 
 const browser = await chromium.launch();

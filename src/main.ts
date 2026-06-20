@@ -10,7 +10,7 @@ import './styles/sections/nav.css';
 import './styles/sections/hero.css';
 import './styles/sections/marquee.css';
 import './styles/sections/bento.css';
-import './styles/sections/import.css';
+import './styles/sections/agendamentos.css';
 import './styles/sections/forecast.css';
 import './styles/sections/goals.css';
 import './styles/sections/security.css';
@@ -23,7 +23,6 @@ import { setupParticles } from './lib/particles';
 import { setupMarquee } from './lib/marquee';
 import { setupNav } from './sections/nav';
 import { setupHero } from './sections/hero';
-import { setupImportAi } from './sections/import-ai';
 import { setupForecast } from './sections/forecast';
 import { setupGoals } from './sections/goals';
 
@@ -41,7 +40,6 @@ setupNav();
 setupSplitText();
 setupReveals();
 setupHero();
-setupImportAi();
 setupForecast();
 setupGoals();
 
