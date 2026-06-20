@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/smartbunny-landing/',
+  base: './',
   build: {
     target: 'es2020',
     assetsInlineLimit: 2048,
