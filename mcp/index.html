@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servidor MCP do SmartBunny — Documentação</title>
+    <meta
+      name="description"
+      content="Como conectar o Claude ou o ChatGPT ao SmartBunny pelo servidor MCP: acesso somente leitura aos seus dados financeiros, como ativar, privacidade e solução de problemas."
+    />
+    <meta property="og:title" content="Servidor MCP do SmartBunny — Documentação" />
+    <meta
+      property="og:description"
+      content="Conecte seu assistente de IA ao SmartBunny com acesso somente leitura aos seus dados financeiros. Guia de configuração, privacidade e suporte."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.smartbunny.com.br/mcp/" />
+    <meta property="og:image" content="https://www.smartbunny.com.br/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#07120a" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-bunny-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-bunny-16.png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ======================= NAV ======================= -->
+    <header class="docnav">
+      <div class="docnav__inner container">
+        <a class="docnav__brand" href="../" aria-label="SmartBunny — início">
+          <img src="../src/assets/brand/logo.svg" alt="" width="30" height="30" />
+          <span class="docnav__wordmark"><b>Smart</b><em>Bunny</em></span>
+        </a>
+        <span class="docnav__spacer"></span>
+        <a class="docnav__back" href="../">← Voltar ao site</a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- ======================= HERO ======================= -->
+      <section class="dochero">
+        <div class="container">
+          <p class="eyebrow">Servidor MCP · Documentação</p>
+          <h1 class="dochero__title">Conecte seu assistente de IA ao SmartBunny.</h1>
+          <p class="dochero__lead">
+            O servidor MCP (Model Context Protocol) do SmartBunny permite que assistentes como o
+            <strong>Claude</strong> e o <strong>ChatGPT</strong> leiam os seus próprios dados
+            financeiros para responder perguntas, resumir gastos e projetar o seu fluxo de caixa.
+            O acesso é <strong>somente leitura</strong>: nenhum dado é criado, alterado ou apagado.
+          </p>
+          <div class="dochero__badges">
+            <span class="pill">🔒 Somente leitura</span>
+            <span class="pill">✅ Ativação opcional</span>
+            <span class="pill">🔑 Login seguro (OAuth)</span>
+            <span class="pill">🧾 Tudo auditado</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="docmain">
+        <div class="container">
+          <!-- ======================= ENDPOINT ======================= -->
+          <section class="docsection" id="endpoint">
+            <h2 class="docsection__title">Endpoint do servidor</h2>
+            <p class="docsection__intro">
+              Use este endereço ao adicionar o SmartBunny como conector MCP no seu assistente de IA.
+            </p>
+            <div class="endpoint">
+              <span class="endpoint__label">Endpoint MCP</span>
+              <span class="endpoint__url" id="mcp-url">https://api.smartbunny.com.br/mcp</span>
+              <button class="copybtn" type="button" data-copy="https://api.smartbunny.com.br/mcp">
+                Copiar
+              </button>
+            </div>
+            <div class="callout">
+              <span class="callout__icon" aria-hidden="true">💡</span>
+              <p>
+                A autenticação é feita por OAuth 2.0. Ao conectar, o assistente abre a tela de login
+                do SmartBunny (gerenciada pela AWS Cognito) e você autoriza o acesso. Você não
+                precisa copiar nem colar tokens manualmente.
+              </p>
+            </div>
+          </section>
+
+          <!-- ======================= WHAT IT DOES ======================= -->
+          <section class="docsection" id="recursos">
+            <h2 class="docsection__title">O que o assistente consegue acessar</h2>
+            <p class="docsection__intro">
+              Todas as ferramentas são <strong>somente leitura</strong> e operam apenas sobre a sua
+              conta. O assistente pode consultar, resumir e analisar — nunca movimentar dinheiro nem
+              editar lançamentos.
+            </p>
+            <div class="toolgrid">
+              <article class="toolcard">
+                <h3>Visão geral e contas</h3>
+                <ul>
+                  <li><b>Visão geral financeira</b> — saldos, receitas e despesas do período.</li>
+                  <li><b>Contas</b> — lista de contas com saldos e metadados.</li>
+                  <li><b>Faturas de cartão</b> — resumo das faturas de cartão de crédito.</li>
+                </ul>
+              </article>
+              <article class="toolcard">
+                <h3>Transações</h3>
+                <ul>
+                  <li><b>Buscar transações</b> — por texto, data, conta, categoria, comerciante ou tag.</li>
+                  <li><b>Totais por assunto</b> — quanto você gastou em uma categoria, comerciante ou tag.</li>
+                  <li><b>Resumo de gastos</b> — tendências e principais categorias e comerciantes.</li>
+                </ul>
+              </article>
+              <article class="toolcard">
+                <h3>Organização</h3>
+                <ul>
+                  <li><b>Categorias</b> — categorias de receita e despesa, com limites.</li>
+                  <li><b>Tags</b> e <b>comerciantes</b> — registros usados nos lançamentos.</li>
+                  <li><b>Automações</b> — regras de categorização e conciliação (leitura).</li>
+                </ul>
+              </article>
+              <article class="toolcard">
+                <h3>Planejamento e futuro</h3>
+                <ul>
+                  <li><b>Projeção de fluxo de caixa</b> — saldo realizado e projetado.</li>
+                  <li><b>Orçamentos</b> — limites ativos e configuração.</li>
+                  <li><b>Metas</b> — progresso das metas no período.</li>
+                </ul>
+              </article>
+              <article class="toolcard">
+                <h3>Agendamentos e recorrências</h3>
+                <ul>
+                  <li><b>Séries recorrentes</b> — assinaturas, salário, parcelamentos.</li>
+                  <li><b>Ocorrências</b> — lançamentos futuros, pagos e em atraso de uma série.</li>
+                  <li><b>Resumo de recorrências</b> — totais pendentes e realizados do período.</li>
+                </ul>
+              </article>
+              <article class="toolcard">
+                <h3>Importações e estado</h3>
+                <ul>
+                  <li><b>Histórico de importações</b> — extratos importados e sessões.</li>
+                  <li><b>Detalhe de importação</b> — linhas processadas e transações geradas.</li>
+                  <li><b>Modo simulação</b> — indica se a leitura é de dados simulados.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <!-- ======================= PREREQS ======================= -->
+          <section class="docsection" id="pre-requisitos">
+            <h2 class="docsection__title">Pré-requisitos</h2>
+            <ul class="doc-prose">
+              <li>Uma conta no SmartBunny — <a href="https://app.smartbunny.com.br/signup">crie a sua aqui</a>.</li>
+              <li>O acesso MCP ativado nas configurações da sua conta (passo abaixo).</li>
+              <li>Um assistente compatível com conectores MCP, como o Claude ou o ChatGPT.</li>
+            </ul>
+          </section>
+
+          <!-- ======================= ENABLE ======================= -->
+          <section class="docsection" id="ativar">
+            <h2 class="docsection__title">Como ativar o acesso</h2>
+            <p class="docsection__intro">
+              Por segurança, o acesso MCP vem <strong>desativado</strong>. Você precisa ativá-lo
+              explicitamente uma vez, dentro do SmartBunny.
+            </p>
+            <ol class="steps">
+              <li>
+                <h3>Entre na sua conta</h3>
+                <p>Acesse <code>app.smartbunny.com.br</code> e faça login.</p>
+              </li>
+              <li>
+                <h3>Abra Configurações → Integrações de IA</h3>
+                <p>
+                  Na área de integrações de IA, você verá a opção de acesso por MCP, com a
+                  explicação dos dados que ficam disponíveis (somente leitura).
+                </p>
+              </li>
+              <li>
+                <h3>Ative o acesso MCP</h3>
+                <p>
+                  Ligue a opção para autorizar a leitura. Você pode desligá-la a qualquer momento —
+                  ao desativar, novas consultas do assistente passam a ser recusadas.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <!-- ======================= CONNECT ======================= -->
+          <section class="docsection" id="conectar">
+            <h2 class="docsection__title">Como conectar</h2>
+            <p class="docsection__intro">
+              Adicione o SmartBunny como conector personalizado usando o endpoint
+              <code>https://api.smartbunny.com.br/mcp</code>. Ao conectar, faça login no SmartBunny
+              quando solicitado para concluir a autorização.
+            </p>
+            <div class="connectgrid">
+              <article class="connectcard">
+                <h3>Claude</h3>
+                <ol>
+                  <li>Abra <strong>Configurações → Conectores</strong>.</li>
+                  <li>Escolha <strong>Adicionar conector personalizado</strong>.</li>
+                  <li>Cole o endpoint MCP do SmartBunny.</li>
+                  <li>Faça login no SmartBunny e autorize o acesso de leitura.</li>
+                  <li>Pronto: peça, por exemplo, “quanto gastei em mercado este mês?”.</li>
+                </ol>
+              </article>
+              <article class="connectcard">
+                <h3>ChatGPT</h3>
+                <ol>
+                  <li>Abra as configurações de <strong>conectores / aplicativos (MCP)</strong>.</li>
+                  <li>Escolha adicionar um <strong>conector MCP personalizado</strong>.</li>
+                  <li>Cole o endpoint MCP do SmartBunny.</li>
+                  <li>Faça login no SmartBunny e autorize o acesso de leitura.</li>
+                  <li>Comece a perguntar sobre as suas finanças.</li>
+                </ol>
+              </article>
+            </div>
+          </section>
+
+          <!-- ======================= PRIVACY ======================= -->
+          <section class="docsection" id="privacidade">
+            <h2 class="docsection__title">Privacidade e segurança</h2>
+            <ul class="doc-prose">
+              <li><strong>Somente leitura:</strong> o servidor MCP não cria, edita nem exclui nada na sua conta.</li>
+              <li><strong>Ativação explícita:</strong> nada fica acessível até você ligar o acesso MCP nas configurações.</li>
+              <li><strong>Login seguro:</strong> autenticação por OAuth 2.0 com a AWS Cognito; o assistente nunca vê a sua senha.</li>
+              <li><strong>Apenas os seus dados:</strong> cada consulta retorna somente informações da sua própria conta.</li>
+              <li><strong>Auditoria:</strong> toda chamada de ferramenta é registrada (ferramenta, horário, resultado).</li>
+              <li><strong>Revogação:</strong> desligue o acesso MCP a qualquer momento para encerrar novas consultas.</li>
+            </ul>
+            <div class="callout callout--warn">
+              <span class="callout__icon" aria-hidden="true">⚠️</span>
+              <p>
+                Se a sua conta estiver em <strong>modo simulação</strong>, as respostas vêm marcadas
+                como dados simulados — e o assistente avisa que aquele resultado não reflete os seus
+                dados reais.
+              </p>
+            </div>
+          </section>
+
+          <!-- ======================= TROUBLESHOOTING ======================= -->
+          <section class="docsection" id="suporte">
+            <h2 class="docsection__title">Solução de problemas e suporte</h2>
+            <div class="faq">
+              <details>
+                <summary>O assistente diz que o acesso MCP não está ativado</summary>
+                <p>
+                  Entre em <code>app.smartbunny.com.br</code>, abra Configurações → Integrações de IA
+                  e ative o acesso MCP. Depois, tente a consulta novamente.
+                </p>
+              </details>
+              <details>
+                <summary>Falha de login ou autorização</summary>
+                <p>
+                  Verifique se você está conectado com a mesma conta do SmartBunny. Remova e adicione
+                  o conector novamente para refazer o fluxo de login (OAuth) e reautorizar o acesso.
+                </p>
+              </details>
+              <details>
+                <summary>As respostas vêm vazias</summary>
+                <p>
+                  Confirme se há dados no período consultado e se as contas/lançamentos estão
+                  importados. Tente ampliar o intervalo de datas da pergunta.
+                </p>
+              </details>
+              <details>
+                <summary>Recebi um aviso de “dados simulados”</summary>
+                <p>
+                  Sua conta está em modo simulação. Saia do modo simulação no SmartBunny para
+                  consultar os seus dados reais.
+                </p>
+              </details>
+            </div>
+            <div class="callout">
+              <span class="callout__icon" aria-hidden="true">✉️</span>
+              <p>
+                Precisa de ajuda? Fale com a gente em
+                <a href="mailto:suporte@smartbunny.com.br">suporte@smartbunny.com.br</a>.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <a class="docnav__brand" href="../" aria-label="SmartBunny">
+          <img src="../src/assets/brand/logo.svg" alt="" width="26" height="26" />
+          <span class="docnav__wordmark"><b>Smart</b><em>Bunny</em></span>
+        </a>
+        <p>© 2026 CodexForge — SmartBunny. Feito com 💚 no Brasil.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="../src/mcp.ts"></script>
+  </body>
+</html>
