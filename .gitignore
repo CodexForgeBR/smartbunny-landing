@@ -3,3 +3,6 @@ dist
 .DS_Store
 *.local
 src/assets/screens/raw
+
+# ad generation intermediates
+ads/_*.b64
