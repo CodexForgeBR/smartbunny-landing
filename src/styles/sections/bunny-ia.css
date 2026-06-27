@@ -1,0 +1,20 @@
+/* Bunny IA reuses the .agenda two-column + steps layout.
+   Only the example-prompt chip cluster needs extra styling. */
+.bunny-ia__prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.bunny-ia__prompts .chip {
+  white-space: normal;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+}
+
+@media (max-width: 860px) {
+  .bunny-ia__prompts { margin-top: 1.5rem; }
+}

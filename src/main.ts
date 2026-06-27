@@ -11,6 +11,7 @@ import './styles/sections/hero.css';
 import './styles/sections/marquee.css';
 import './styles/sections/bento.css';
 import './styles/sections/agendamentos.css';
+import './styles/sections/bunny-ia.css';
 import './styles/sections/forecast.css';
 import './styles/sections/goals.css';
 import './styles/sections/security.css';

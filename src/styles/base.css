@@ -192,3 +192,15 @@ a {
   padding: 0.25rem 1rem;
 }
 
+.cta-note {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cta-note::before {
+  content: "✓ ";
+  color: var(--green-light);
+  font-weight: 700;
+}
+

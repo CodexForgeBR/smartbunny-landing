@@ -42,8 +42,21 @@ async function selectThisMonth(page) {
   await page.waitForTimeout(1200);
 }
 
+// The test account has chat history, so /chat opens the last conversation.
+// Start a new chat to reach the empty state with the suggested-prompt cards.
+async function newChat(page) {
+  const novoChat = page.getByRole('button', { name: /Novo chat/i }).first();
+  if (await novoChat.count()) {
+    await novoChat.click();
+    await page.waitForTimeout(2000);
+  }
+  await page.getByText('Quanto eu já gastei este mês?').first().waitFor({ timeout: 30000 });
+  await page.waitForTimeout(1500);
+}
+
 const SHOTS = [
   { route: '/', name: 'dashboard', viewport: DESKTOP, settle: 6000, prepare: selectThisMonth },
+  { route: '/chat', name: 'bunny-ia', viewport: DESKTOP, settle: 4000, prepare: newChat },
   { route: '/previsao', name: 'previsao', viewport: DESKTOP, settle: 5000 },
   { route: '/agendamentos', name: 'agendamentos', viewport: DESKTOP, settle: 5000 },
   { route: '/metas', name: 'metas', viewport: DESKTOP, settle: 4000 },
