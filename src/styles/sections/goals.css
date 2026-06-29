@@ -59,8 +59,9 @@
 .goals__ring-label {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-heading);
   font-weight: 900;
   font-size: 1.25rem;
