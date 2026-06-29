@@ -1,0 +1,19 @@
+/* Investimentos reuses the .agenda two-column + steps layout.
+   Only the asset-type chip cluster needs extra styling. */
+.investimentos__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.investimentos__tags .chip {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+}
+
+@media (max-width: 860px) {
+  .investimentos__tags { margin-top: 1.5rem; }
+}
