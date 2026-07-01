@@ -8,6 +8,8 @@ import './styles/tokens.css';
 import './styles/base.css';
 import './styles/mcp.css';
 
+import './lib/analytics';
+
 // Copy-to-clipboard for the MCP endpoint URL.
 for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
   button.addEventListener('click', async () => {

@@ -18,6 +18,8 @@ import './styles/sections/goals.css';
 import './styles/sections/security.css';
 import './styles/sections/cta.css';
 
+import './lib/analytics';
+
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger, reducedMotion, setupReveals } from './lib/motion';
 import { setupSplitText } from './lib/split-text';
