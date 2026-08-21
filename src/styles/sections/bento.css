@@ -47,11 +47,9 @@
   grid-row: span 2;
 }
 
-.bento__card--tall img {
+.bento__card--tall .bento__phone {
   margin: 1.4rem auto -40%;
   width: 78%;
-  border-radius: 22px;
-  border: 1px solid var(--line);
 }
 
 .bento__icon {
@@ -84,7 +82,7 @@
     grid-row: auto;
   }
 
-  .bento__card--tall img {
+  .bento__card--tall .bento__phone {
     margin-bottom: -30%;
   }
 }

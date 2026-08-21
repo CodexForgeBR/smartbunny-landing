@@ -33,6 +33,11 @@
   position: relative;
 }
 
+.agenda__visual .agenda__ipad {
+  width: min(520px, 90vw);
+  margin-inline: auto;
+}
+
 @media (max-width: 860px) {
   .agenda__layout {
     grid-template-columns: 1fr;

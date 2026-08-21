@@ -62,3 +62,29 @@
   font-size: 0.9rem;
   margin: 0;
 }
+
+/* legal identification (razão social + CNPJ) — required for business verification */
+.footer__legal {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer__legal p {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  max-width: 92ch;
+}
+
+.footer__legal p + p {
+  margin-top: 0.35rem;
+}
+
+.footer__legal strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footer__legal a {
+  color: var(--green-light);
+}

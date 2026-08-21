@@ -1,0 +1,47 @@
+/* iPhone device frame — generic dark bezel around a raw app capture.
+   The screenshot brings its own status bar and Dynamic Island, so the
+   frame only supplies the outer shell. */
+.phone-frame {
+  margin: 0;
+  padding: 10px;
+  border-radius: 46px;
+  border: 1px solid var(--line);
+  background: #0c1a10;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(139, 226, 139, 0.06);
+}
+
+.phone-frame img {
+  border-radius: 36px;
+}
+
+/* iPad variant — squarer corners, slimmer bezel ratio */
+.phone-frame--ipad {
+  padding: 12px;
+  border-radius: 30px;
+}
+
+.phone-frame--ipad img {
+  border-radius: 18px;
+}
+
+/* App Store badge link (official Apple artwork, min height 40px) */
+.appstore-badge {
+  display: inline-flex;
+  border-radius: 10px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  will-change: transform;
+}
+
+.appstore-badge:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+.appstore-badge img {
+  height: 52px;
+  width: auto;
+}
+
+.appstore-badge--sm img {
+  height: 40px;
+}

@@ -45,6 +45,11 @@
   position: relative;
 }
 
+.forecast__ipad {
+  width: min(600px, 92vw);
+  margin-inline: auto;
+}
+
 .forecast__sim {
   display: flex;
   align-items: center;

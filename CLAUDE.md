@@ -22,6 +22,21 @@ Pipeline:
 Raw PNGs live in `src/assets/screens/raw/`; the committed WebPs that the HTML references
 live in `src/assets/screens/`.
 
+**iOS screenshots** (`ios-*-mobile.*`, `ios-*-ipad.*`) are NOT captured by the pipeline — they
+come from the native app's App Store marketing shots at
+`~/source/smartbunny.ios/docs/app-store/screenshots/{iphone-69,ipad-13}/`, copied into
+`src/assets/screens/raw/` as `ios-<name>-mobile.png` (iPhone → 780px rule) or
+`ios-<name>-ipad.png` (iPad → 1400px rule) and shown inside the CSS `.phone-frame` /
+`.phone-frame--ipad` (`src/styles/phone-frame.css`). iOS frames are the default visual for
+feature sections; browser-frame web shots are used only where no iOS capture exists.
+
+## App Store link
+
+All "Baixar na App Store" badges carry `data-appstore`; their href is set from the single
+constant `APP_STORE_URL` in `src/lib/app-store.ts` (HTML hrefs in `index.html` and the
+JSON-LD `installUrl` carry the same URL as a no-JS fallback — keep all in sync if the
+listing URL ever changes). Live listing: id6794168721.
+
 ## Adding a feature section
 
 Reuse the existing two-column `.agenda__layout` pattern (copy on the left, a `.browser-frame`

@@ -91,15 +91,36 @@
 
 .hero__shot {
   position: relative;
-  width: min(1080px, 92vw);
+  width: min(680px, 88vw);
   margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
   perspective: 1400px;
   z-index: 1;
 }
 
-.hero__shot .browser-frame {
+.hero__shot .hero__ipad {
   transform: rotateX(10deg) scale(0.96);
   transform-origin: center top;
+}
+
+/* iPhone overlapping the iPad frame's bottom-left corner */
+.hero__phone {
+  position: absolute;
+  left: clamp(-4.5rem, -6vw, -2rem);
+  bottom: clamp(-3.5rem, -4vw, -2rem);
+  width: clamp(190px, 22vw, 290px);
+  z-index: 3;
+}
+
+@media (max-width: 760px) {
+  .hero__ipad {
+    display: none;
+  }
+
+  .hero__phone {
+    position: static;
+    width: min(280px, 76vw);
+    margin: 0 auto;
+  }
 }
 
 .hero::after {

@@ -14,11 +14,26 @@ export function setupHero(): void {
   });
 
   // dashboard frame un-tilts and settles as you scroll
-  const frame = document.querySelector('.hero__shot .browser-frame');
+  const frame = document.querySelector('.hero__shot .hero__ipad');
   if (frame && isDesktop()) {
     gsap.to(frame, {
       rotateX: 0,
       scale: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero__shot',
+        start: 'top 85%',
+        end: 'top 30%',
+        scrub: 1,
+      },
+    });
+  }
+
+  // phone drifts up slightly as the frame settles
+  const phone = document.querySelector('.hero__phone');
+  if (phone && isDesktop()) {
+    gsap.from(phone, {
+      y: 60,
       ease: 'none',
       scrollTrigger: {
         trigger: '.hero__shot',

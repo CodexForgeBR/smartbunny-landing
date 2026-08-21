@@ -1,0 +1,19 @@
+/* Cartões reuses the .agenda two-column + steps layout.
+   Only the chip cluster needs extra styling. */
+.cartoes__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.cartoes__chips .chip {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+}
+
+@media (max-width: 860px) {
+  .cartoes__chips { margin-top: 1.5rem; }
+}

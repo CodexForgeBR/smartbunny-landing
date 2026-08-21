@@ -20,15 +20,45 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q61N8XR4K"></script>
 
-    <title>SmartBunny — Seu dinheiro, finalmente sob controle</title>
-    <meta name="description" content="O SmartBunny organiza seus lançamentos, importa extratos e projeta seu fluxo de caixa — para você ver o futuro do seu dinheiro antes de ele acontecer." />
-    <meta property="og:title" content="SmartBunny — Finanças pessoais sob controle" />
-    <meta property="og:description" content="Importe extratos, organize seus lançamentos e veja seu fluxo de caixa projetado. Feito para o Brasil." />
+    <title>SmartBunny — Finanças pessoais no iPhone, iPad e navegador</title>
+    <meta name="description" content="O SmartBunny organiza seus lançamentos, importa extratos e projeta seu fluxo de caixa — no app para iPhone e iPad ou no navegador. 100% grátis." />
+    <meta property="og:title" content="SmartBunny — Finanças pessoais no iPhone, iPad e navegador" />
+    <meta property="og:description" content="Importe extratos, organize seus lançamentos e veja seu fluxo de caixa projetado — no app para iPhone e iPad ou no navegador. 100% grátis." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.smartbunny.com.br/" />
     <meta property="og:image" content="https://www.smartbunny.com.br/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#07120a" />
+    <link rel="canonical" href="https://www.smartbunny.com.br/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SmartBunny: Finanças Pessoais",
+      "operatingSystem": "iOS",
+      "applicationCategory": "FinanceApplication",
+      "inLanguage": "pt-BR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+      "installUrl": "https://apps.apple.com/br/app/smartbunny-finan%C3%A7as-pessoais/id6794168721",
+      "url": "https://www.smartbunny.com.br/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CodexForge",
+        "legalName": "BRUNO CARLOS CAETANO SANTOS TECNOLOGIA DA INFORMACAO LTDA",
+        "taxID": "67.557.187/0001-08",
+        "email": "suporte@smartbunny.com.br",
+        "url": "https://www.smartbunny.com.br/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Visconde do Rio Branco, 1488, Conj. 909, Andar 09",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "postalCode": "80420-210",
+          "addressCountry": "BR"
+        }
+      }
+    }
+    </script>
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-bunny-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-bunny-16.png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
@@ -40,10 +70,11 @@
     <header class="nav" id="nav">
       <div class="nav__inner container">
         <a class="nav__brand" href="#" aria-label="SmartBunny — início">
-          <img src="./src/assets/brand/logo.svg" alt="" width="34" height="34" />
+          <img class="brand-icon" src="./src/assets/brand/app-icon.png" alt="" width="34" height="34" />
           <span class="nav__wordmark"><b>Smart</b><em>Bunny</em></span>
         </a>
         <nav class="nav__links" aria-label="Navegação principal">
+          <a href="#app">App iOS</a>
           <a href="#recursos">Recursos</a>
           <a href="#bunny-ia">Bunny IA</a>
           <a href="#investimentos">Investimentos</a>
@@ -65,18 +96,20 @@
         <div class="hero__glow" aria-hidden="true"></div>
         <div class="container hero__content">
           <p class="hero__badge" data-reveal>
-            <span aria-hidden="true">🇧🇷</span> Feito para o Brasil — seus extratos, cartões e contas em reais
+            <span aria-hidden="true">🇧🇷</span> Feito para o Brasil — agora na App Store
           </p>
           <h1 class="hero__title" data-split>Seu dinheiro, finalmente sob controle.</h1>
           <p class="hero__sub" data-reveal>
-            O SmartBunny organiza seus lançamentos, importa extratos, controla contas recorrentes
-            e projeta seu fluxo de caixa — você vê o futuro do seu dinheiro <strong>antes de ele acontecer</strong>.
+            O SmartBunny organiza seus lançamentos, importa extratos e projeta seu fluxo de caixa —
+            no iPhone, no iPad e no navegador. Você vê o futuro do seu dinheiro <strong>antes de ele acontecer</strong>.
           </p>
           <div class="hero__actions" data-reveal>
-            <a class="btn btn--primary btn--lg" href="https://app.smartbunny.com.br/signup" data-magnetic>Criar conta</a>
-            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/login">Entrar</a>
+            <a class="appstore-badge" data-appstore data-magnetic href="https://apps.apple.com/br/app/smartbunny-finan%C3%A7as-pessoais/id6794168721">
+              <img src="./app-store-badge-ptbr.svg" alt="Baixar na App Store" width="156" height="52" />
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/signup">Usar no navegador</a>
           </div>
-          <p class="cta-note" data-reveal>Comece grátis.</p>
+          <p class="cta-note" data-reveal>100% grátis — sem anúncios e sem compras no app.</p>
           <img
             class="hero__mascot"
             src="./src/assets/brand/login-logo-mascot.webp"
@@ -86,15 +119,19 @@
           />
         </div>
         <div class="hero__shot" id="hero-shot">
-          <figure class="browser-frame" data-tilt>
-            <figcaption class="browser-frame__bar" aria-hidden="true">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <span class="urlbar">app.smartbunny.com.br</span>
-            </figcaption>
+          <figure class="phone-frame phone-frame--ipad hero__ipad" data-tilt>
             <img
-              src="./src/assets/screens/dashboard.webp"
-              alt="Painel do SmartBunny mostrando saldo atual, evolução do saldo e gastos por categoria"
-              width="1880" height="1175"
+              src="./src/assets/screens/ios-dashboard-ipad.webp"
+              alt="App do SmartBunny no iPad mostrando saldo atual, evolução do saldo e gastos por categoria"
+              width="1400" height="1867"
+              fetchpriority="high"
+            />
+          </figure>
+          <figure class="phone-frame hero__phone">
+            <img
+              src="./src/assets/screens/ios-dashboard-mobile.webp"
+              alt="App do SmartBunny para iPhone mostrando o painel com saldo e gastos do mês"
+              width="780" height="1696"
               fetchpriority="high"
             />
           </figure>
@@ -108,9 +145,11 @@
         </p>
         <div class="marquee__track" id="marquee" aria-hidden="true">
           <div class="marquee__row">
+            <span class="chip">App para iPhone e iPad</span>
             <span class="chip">Extrato PDF</span><span class="chip">OFX</span><span class="chip">XLS</span><span class="chip">CSV</span>
             <span class="chip">Cartão de crédito</span><span class="chip">Multi-contas</span>
             <span class="chip">Faturas</span><span class="chip">Assinaturas</span>
+            <span class="chip">Perfis PF e PJ</span>
           </div>
         </div>
       </section>
@@ -154,11 +193,76 @@
               <h3>Orçamentos por categoria</h3>
               <p>Limites mensais por categoria, com acompanhamento em tempo real do quanto ainda dá pra gastar.</p>
             </article>
+            <article class="bento__card" data-reveal>
+              <span class="bento__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-4.6 5.5-4.6s4.8 1.6 5.5 4.6"/><rect x="14.5" y="6.5" width="6" height="5" rx="1"/><path d="M16.5 6.5V5.4c0-.5.4-.9.9-.9h1.2c.5 0 .9.4.9.9v1.1"/></svg>
+              </span>
+              <h3>Perfis pessoal e empresa</h3>
+              <p>Separe a vida pessoal do negócio na mesma conta: perfis PF e PJ — MEI, Simples, Presumido ou Real — cada um com contas e relatórios próprios.</p>
+            </article>
             <article class="bento__card bento__card--tall" data-reveal>
               <h3>Assinaturas sob controle</h3>
               <p>Netflix, academia, condomínio: cadastre o que se repete e veja tudo projetado no seu fluxo de caixa.</p>
-              <img src="./src/assets/screens/agendamentos-mobile.webp" alt="Tela de agendamentos do SmartBunny no celular com assinaturas e contas recorrentes" loading="lazy" width="390" height="844" />
+              <figure class="phone-frame bento__phone">
+                <img src="./src/assets/screens/ios-agendamentos-mobile.webp" alt="App do SmartBunny para iPhone com assinaturas e contas recorrentes" loading="lazy" width="780" height="1696" />
+              </figure>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= APP iOS ======================= -->
+      <section class="agenda ios-app section" id="app">
+        <div class="container agenda__layout">
+          <div class="agenda__copy">
+            <p class="eyebrow" data-reveal>App para iPhone e iPad</p>
+            <h2 class="section__title" data-split>O SmartBunny no seu bolso.</h2>
+            <p class="section__sub" data-reveal>
+              O mesmo SmartBunny, agora em um app feito para o iPhone e o iPad — com a segurança
+              e a agilidade que só o iOS tem. Entre com e-mail, Google ou Apple.
+            </p>
+            <ul class="agenda__steps">
+              <li class="agenda__step" data-reveal>
+                <h3>Widgets na tela de início</h3>
+                <p>Saldo, contas, faturas, orçamentos e metas em 15 widgets — você escolhe o que aparece e pode manter os valores ocultos.</p>
+              </li>
+              <li class="agenda__step" data-reveal>
+                <h3>Avisos que resolvem</h3>
+                <p>Vencimentos, saldo perto do cheque especial, limite do cartão, orçamento no limite — com ações direto na notificação: registre ou mude a data sem abrir o app.</p>
+              </li>
+              <li class="agenda__step" data-reveal>
+                <h3>Siri, Calendário e voz</h3>
+                <p>Pergunte à Bunny pela Siri, veja seus agendamentos no Calendário do iPhone e importe um extrato direto do menu compartilhar, acompanhando o progresso na Dynamic Island.</p>
+              </li>
+              <li class="agenda__step" data-reveal>
+                <h3>Protegido por Face ID</h3>
+                <p>Bloqueie o app com Face ID e oculte os valores ao trocar de aplicativo. Suas finanças, só para os seus olhos.</p>
+              </li>
+            </ul>
+            <div class="ios-app__chips" data-reveal>
+              <span class="chip">iPhone</span>
+              <span class="chip">iPad</span>
+              <span class="chip">Widgets</span>
+              <span class="chip">Siri</span>
+              <span class="chip">Calendário</span>
+              <span class="chip">Face ID</span>
+              <span class="chip">Notificações push</span>
+            </div>
+            <p class="ios-app__badge" data-reveal>
+              <a class="appstore-badge" data-appstore href="https://apps.apple.com/br/app/smartbunny-finan%C3%A7as-pessoais/id6794168721">
+                <img src="./app-store-badge-ptbr.svg" alt="Baixar na App Store" width="156" height="52" loading="lazy" />
+              </a>
+            </p>
+          </div>
+          <div class="agenda__visual" data-reveal>
+            <figure class="phone-frame ios-app__phone">
+              <img
+                src="./src/assets/screens/ios-previsao-mobile.webp"
+                alt="App do SmartBunny para iPhone mostrando a previsão de fluxo de caixa"
+                width="780" height="1696"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -172,11 +276,11 @@
             <ol class="agenda__steps">
               <li class="agenda__step" data-reveal>
                 <h3>Assinaturas, contas e parcelas</h3>
-                <p>Cadastre assinaturas, contas, parcelamentos e até o salário — com recorrência mensal, semanal, anual ou um número fixo de parcelas.</p>
+                <p>Cadastre assinaturas, contas, parcelamentos e até o salário — com recorrência mensal, semanal, anual ou um número fixo de parcelas — e acompanhe tudo em um calendário.</p>
               </li>
               <li class="agenda__step" data-reveal>
                 <h3>Registro automático no vencimento</h3>
-                <p>Valor fixo ou estimado pelos últimos lançamentos. No vencimento, o agendamento vira transação e se concilia sozinho com o que cai na conta.</p>
+                <p>Valor fixo ou estimado pelos últimos lançamentos. No vencimento, o agendamento vira transação e se concilia sozinho com o que cai na conta — e avisa você antes, por push ou e-mail, com regras próprias por série.</p>
               </li>
               <li class="agenda__step" data-reveal>
                 <h3>Direto no seu fluxo de caixa</h3>
@@ -185,12 +289,51 @@
             </ol>
           </div>
           <div class="agenda__visual" data-reveal>
+            <figure class="phone-frame phone-frame--ipad agenda__ipad">
+              <img src="./src/assets/screens/ios-agendamentos-ipad.webp" alt="App do SmartBunny no iPad com assinaturas, contas e parcelas recorrentes" loading="lazy" width="1400" height="1867" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= CARTÕES DE CRÉDITO ======================= -->
+      <section class="agenda cartoes section" id="cartoes">
+        <div class="container agenda__layout">
+          <div class="agenda__copy">
+            <p class="eyebrow" data-reveal>Cartões de crédito</p>
+            <h2 class="section__title" data-split>Cartões e faturas sem surpresa.</h2>
+            <p class="section__sub" data-reveal>
+              Cada cartão com seu limite, sua fatura e suas parcelas — tudo conectado ao seu fluxo de caixa.
+            </p>
+            <ul class="agenda__steps">
+              <li class="agenda__step" data-reveal>
+                <h3>Limite e fatura em tempo real</h3>
+                <p>Acompanhe o limite usado e disponível e a fatura de cada cartão — inclusive pagamentos parciais, com o que já foi pago e o que ainda está em aberto.</p>
+              </li>
+              <li class="agenda__step" data-reveal>
+                <h3>Faturas dentro da previsão</h3>
+                <p>Cada fatura entra no seu fluxo de caixa na data de vencimento — você sabe o impacto no saldo antes de a conta chegar.</p>
+              </li>
+              <li class="agenda__step" data-reveal>
+                <h3>Importe a fatura em OFX</h3>
+                <p>Traga a fatura do cartão, concilie as compras com detecção de duplicidades e deixe a IA categorizar tudo.</p>
+              </li>
+            </ul>
+            <div class="cartoes__chips" data-reveal>
+              <span class="chip">Limite</span>
+              <span class="chip">Fatura aberta</span>
+              <span class="chip">Pagamento parcial</span>
+              <span class="chip">Parcelas</span>
+              <span class="chip">OFX</span>
+            </div>
+          </div>
+          <div class="agenda__visual" data-reveal>
             <figure class="browser-frame">
               <figcaption class="browser-frame__bar" aria-hidden="true">
                 <span class="dots"><i></i><i></i><i></i></span>
-                <span class="urlbar">app.smartbunny.com.br/agendamentos</span>
+                <span class="urlbar">app.smartbunny.com.br/cartoes-de-credito</span>
               </figcaption>
-              <img src="./src/assets/screens/agendamentos.webp" alt="Tela de agendamentos do SmartBunny com assinaturas, contas e parcelas recorrentes" loading="lazy" width="1880" height="1175" />
+              <img src="./src/assets/screens/cartoes.webp" alt="Tela de cartões de crédito do SmartBunny com limite e fatura de cada cartão" loading="lazy" width="1880" height="1175" />
             </figure>
           </div>
         </div>
@@ -222,12 +365,8 @@
           </div>
 
           <div class="forecast__shot" data-reveal>
-            <figure class="browser-frame">
-              <figcaption class="browser-frame__bar" aria-hidden="true">
-                <span class="dots"><i></i><i></i><i></i></span>
-                <span class="urlbar">app.smartbunny.com.br/previsao</span>
-              </figcaption>
-              <img src="./src/assets/screens/previsao.webp" alt="Previsão de saldo do SmartBunny com gráfico de projeção ao longo do ano" loading="lazy" width="1880" height="1175" />
+            <figure class="phone-frame phone-frame--ipad forecast__ipad">
+              <img src="./src/assets/screens/ios-previsao-ipad.webp" alt="App do SmartBunny no iPad com a previsão de saldo e o gráfico de projeção ao longo do ano" loading="lazy" width="1400" height="1867" />
             </figure>
           </div>
 
@@ -253,13 +392,13 @@
             <p class="section__sub" data-reveal>
               O Bunny IA é o assistente financeiro do SmartBunny. Pergunte em português e
               receba respostas sobre seus gastos, faturas e fluxo de caixa — ou peça para ele
-              <strong>fazer qualquer coisa que você faria na mão</strong>.
+              <strong>fazer qualquer coisa que você faria na mão</strong>, por texto ou por voz.
             </p>
 
             <ul class="agenda__steps bunny-ia__caps" aria-label="O que o Bunny IA faz">
               <li class="agenda__step" data-reveal>
                 <h3>Entende e responde</h3>
-                <p>Resumos de gastos, status de orçamentos, projeção de caixa, faturas de cartão, progresso das metas e busca de transações — é só perguntar.</p>
+                <p>Resumos de gastos, status de orçamentos, projeção de caixa, faturas de cartão, progresso das metas e busca de transações — é só perguntar. Ele também tira dúvidas sobre o próprio SmartBunny, com respostas da central de ajuda.</p>
               </li>
               <li class="agenda__step" data-reveal>
                 <h3>Faz por você</h3>
@@ -267,7 +406,7 @@
               </li>
               <li class="agenda__step" data-reveal>
                 <h3>Importa seu extrato pela conversa</h3>
-                <p>Peça "importe este extrato" e o Bunny IA conduz o passo a passo: inicia o rascunho, escolhe a conta, resolve duplicados, concilia e confirma — com voz ou anexo de arquivo.</p>
+                <p>Peça "importe este extrato" e o Bunny IA conduz o passo a passo: inicia o rascunho, escolhe a conta, resolve duplicados, concilia e confirma. Envie o arquivo ou uma foto direto na conversa.</p>
               </li>
             </ul>
 
@@ -275,21 +414,21 @@
               <span class="chip">Quanto eu já gastei este mês?</span>
               <span class="chip">Quais categorias mais pesaram em junho?</span>
               <span class="chip">Como está meu fluxo de caixa dos próximos 30 dias?</span>
+              <span class="chip">Quanto ainda posso gastar por dia sem estourar o orçamento?</span>
               <span class="chip">Tenho alguma fatura ou conta atrasada?</span>
+              <span class="chip">🎤 Mensagens de voz</span>
+              <span class="chip">📎 Anexos de arquivo e imagem</span>
             </div>
+            <p class="bunny-ia__note" data-reveal>Disponível no navegador e no app do iPhone — por texto, por voz ou até pela Siri.</p>
           </div>
 
           <div class="agenda__visual" data-reveal>
-            <figure class="browser-frame">
-              <figcaption class="browser-frame__bar" aria-hidden="true">
-                <span class="dots"><i></i><i></i><i></i></span>
-                <span class="urlbar">app.smartbunny.com.br/chat</span>
-              </figcaption>
+            <figure class="phone-frame bunny-ia__phone">
               <img
-                src="./src/assets/screens/bunny-ia.webp"
-                alt="Tela do Bunny IA no SmartBunny: conversa em português sobre gastos e fluxo de caixa, com cartões de sugestão de perguntas"
+                src="./src/assets/screens/ios-bunny-ia-mobile.webp"
+                alt="Bunny IA no iPhone: conversa em português sobre gastos e fluxo de caixa, com sugestões de perguntas e botão de voz"
                 loading="lazy"
-                width="1880" height="1175"
+                width="780" height="1696"
               />
             </figure>
           </div>
@@ -374,8 +513,10 @@
                 <div class="bar" style="--w: 31%"><i></i><span>Transporte</span></div>
               </div>
               <h3>Orçamento que te avisa</h3>
-              <p>Limites por categoria com progresso em tempo real — antes de estourar, você fica sabendo.</p>
-              <img src="./src/assets/screens/orcamentos.webp" alt="Tela de orçamentos do SmartBunny com limites por categoria" loading="lazy" width="940" height="588" />
+              <p>Limites por categoria com progresso em tempo real — e avisos no app e por notificação antes de estourar.</p>
+              <figure class="phone-frame goals__phone">
+                <img src="./src/assets/screens/ios-orcamentos-mobile.webp" alt="Tela de orçamentos do SmartBunny no iPhone com limites por categoria" loading="lazy" width="780" height="1696" />
+              </figure>
             </article>
           </div>
         </div>
@@ -408,6 +549,13 @@
               <h3>Você no controle</h3>
               <p>Seus dados entram por você, por importação ou lançamento manual, e ficam guardados na sua conta. Você revisa e decide o que fica.</p>
             </article>
+            <article class="security__card" data-reveal>
+              <span class="security__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/><path d="M3 12h2M19 12h2"/></svg>
+              </span>
+              <h3>Time Machine: nada se perde</h3>
+              <p>Todo registro guarda seu histórico de versões. Veja o que mudou e quem mudou — você, uma automação ou o Bunny IA — e restaure qualquer versão quando quiser.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -417,28 +565,45 @@
         <div class="container cta__inner">
           <img class="cta__mascot" src="./src/assets/brand/login-logo-mascot.webp" alt="" aria-hidden="true" loading="lazy" width="220" height="330" />
           <h2 class="cta__title" data-split>Comece a multiplicar como um coelho.</h2>
-          <p class="cta__sub" data-reveal>Crie sua conta e comece agora a organizar lançamentos, recorrências e previsões.</p>
+          <p class="cta__sub" data-reveal>Baixe o app ou crie sua conta no navegador — e comece agora a organizar lançamentos, cartões e previsões.</p>
           <div class="cta__actions" data-reveal>
-            <a class="btn btn--primary btn--lg" href="https://app.smartbunny.com.br/signup" data-magnetic>
-              Criar conta
+            <a class="appstore-badge" data-appstore data-magnetic href="https://apps.apple.com/br/app/smartbunny-finan%C3%A7as-pessoais/id6794168721">
+              <img src="./app-store-badge-ptbr.svg" alt="Baixar na App Store" width="156" height="52" loading="lazy" />
             </a>
-            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/login">
-              Entrar
+            <a class="btn btn--ghost btn--lg" href="https://app.smartbunny.com.br/signup">
+              Usar no navegador
             </a>
           </div>
-          <p class="cta-note" data-reveal>Comece grátis.</p>
+          <p class="cta-note" data-reveal>100% grátis.</p>
         </div>
       </section>
     </main>
 
     <!-- ======================= FOOTER ======================= -->
     <footer class="footer">
-      <div class="container footer__inner">
-        <a class="nav__brand" href="#" aria-label="SmartBunny">
-          <img src="./src/assets/brand/logo.svg" alt="" width="28" height="28" />
-          <span class="nav__wordmark"><b>Smart</b><em>Bunny</em></span>
-        </a>
-        <p>© 2026 CodexForge — SmartBunny. Feito com 💚 no Brasil.</p>
+      <div class="container">
+        <div class="footer__inner">
+          <a class="nav__brand" href="#" aria-label="SmartBunny">
+            <img class="brand-icon" src="./src/assets/brand/app-icon.png" alt="" width="28" height="28" />
+            <span class="nav__wordmark"><b>Smart</b><em>Bunny</em></span>
+          </a>
+          <p>© 2026 CodexForge — SmartBunny. Feito com 💚 no Brasil.</p>
+          <a class="appstore-badge appstore-badge--sm" data-appstore href="https://apps.apple.com/br/app/smartbunny-finan%C3%A7as-pessoais/id6794168721">
+            <img src="./app-store-badge-ptbr.svg" alt="Baixar na App Store" width="120" height="40" loading="lazy" />
+          </a>
+        </div>
+        <div class="footer__legal">
+          <p>
+            SmartBunny é um produto da <strong>CodexForge</strong> —
+            <strong>BRUNO CARLOS CAETANO SANTOS TECNOLOGIA DA INFORMACAO LTDA</strong>,
+            CNPJ <strong>67.557.187/0001-08</strong>.
+          </p>
+          <p>
+            Visconde do Rio Branco, 1488, Conj. 909, Andar 09 — Centro, Curitiba/PR,
+            CEP 80420-210, Brasil. Contato:
+            <a href="mailto:suporte@smartbunny.com.br">suporte@smartbunny.com.br</a>
+          </p>
+        </div>
       </div>
     </footer>
 

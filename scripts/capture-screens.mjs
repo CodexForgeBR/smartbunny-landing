@@ -17,6 +17,8 @@ const PASSWORD = 'K6Test@2026SmartRabbit';
 
 const DESKTOP = { width: 1440, height: 900 };
 const MOBILE = { width: 390, height: 844 };
+// wider 16:10 for screens whose summary tiles clip at 1440 (e.g. cartões)
+const WIDE = { width: 1680, height: 1050 };
 
 // Switches the global period selector to the current calendar month so
 // month-scoped widgets (Gastos vs Orçamento) have data.
@@ -54,11 +56,52 @@ async function newChat(page) {
   await page.waitForTimeout(1500);
 }
 
+// Collapse the sidebar to its icon rail so desktop shots don't look cramped.
+// The toggle is the chevron-left button pinned to the sidebar's right edge —
+// never the period-selector chevron in the header. Idempotent: once collapsed,
+// the button renders chevron-right and nothing matches.
+async function collapseSidebar(page) {
+  const clicked = await page.evaluate(() => {
+    for (const btn of document.querySelectorAll('button')) {
+      if (!btn.querySelector('svg.lucide-chevron-left')) continue;
+      const r = btn.getBoundingClientRect();
+      if (r.left > 150 && r.left < 450 && r.top < 250 && r.width < 60) {
+        btn.click();
+        return true;
+      }
+    }
+    return false;
+  });
+  if (clicked) await page.waitForTimeout(1200);
+}
+
+// The shared test account accumulates k6 perf-test credit cards; filter the list
+// down to the curated demo card and hide the tile trend chips (they overlap the
+// Total value at marketing widths).
+async function prepareCartoes(page) {
+  const search = page.getByPlaceholder(/Buscar cartões/i).first();
+  if (!(await search.count())) return;
+  await search.fill('Nubank');
+  await page.getByText('Cartão Nubank').first().waitFor({ timeout: 30000 });
+  await page.waitForTimeout(6000);
+  await page.evaluate(() => {
+    for (const el of document.querySelectorAll('body *')) {
+      const t = (el.textContent || '').trim();
+      if (/^[+\-−]?\d+([.,]\d+)?%$/.test(t) && el.getBoundingClientRect().height < 60) {
+        let chip = el;
+        while (chip.parentElement && chip.parentElement.getBoundingClientRect().height < 60) chip = chip.parentElement;
+        chip.style.display = 'none';
+      }
+    }
+  });
+}
+
 const SHOTS = [
   { route: '/', name: 'dashboard', viewport: DESKTOP, settle: 6000, prepare: selectThisMonth },
   { route: '/chat', name: 'bunny-ia', viewport: DESKTOP, settle: 4000, prepare: newChat },
   { route: '/previsao', name: 'previsao', viewport: DESKTOP, settle: 5000 },
   { route: '/agendamentos', name: 'agendamentos', viewport: DESKTOP, settle: 5000 },
+  { route: '/cartoes-de-credito', name: 'cartoes', viewport: WIDE, settle: 8000, prepare: prepareCartoes },
   { route: '/metas', name: 'metas', viewport: DESKTOP, settle: 4000 },
   { route: '/investimentos', name: 'investimentos', viewport: DESKTOP, settle: 5000 },
   { route: '/orcamentos', name: 'orcamentos', viewport: DESKTOP, settle: 12000 },
@@ -76,18 +119,26 @@ async function login(page) {
     await page.locator('input[type="password"]').fill(PASSWORD);
     await page.locator('button[type="submit"]').click();
     await page.waitForURL((url) => !url.pathname.includes('login'), { timeout: 30000 });
-    await page.waitForLoadState('networkidle');
+    // networkidle can hang post-login (persistent connections); settle on a timer
+    await page.waitForTimeout(6000);
+  }
+  // dismiss the "Atualizamos os documentos legais" modal when terms were re-versioned
+  const accept = page.getByRole('button', { name: /Li e aceito/i }).first();
+  if (await accept.count()) {
+    await accept.click();
+    await page.waitForTimeout(2000);
   }
 }
 
 // One context per viewport, login once each, reuse session within it.
-for (const viewport of [DESKTOP, MOBILE]) {
+for (const viewport of [DESKTOP, MOBILE, WIDE]) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 2 });
   const page = await context.newPage();
   await login(page);
   for (const shot of SHOTS.filter((s) => s.viewport === viewport)) {
     await page.goto(`${BASE}${shot.route}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(shot.settle);
+    if (viewport !== MOBILE) await collapseSidebar(page);
     if (shot.prepare) await shot.prepare(page);
     if (viewport === MOBILE) {
       // close the overlay sidebar drawer if it is open

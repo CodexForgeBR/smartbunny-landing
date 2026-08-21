@@ -1,0 +1,29 @@
+/* App iOS reuses the .agenda two-column + steps layout.
+   Extra rules: phone sizing in the visual column, chip cluster, badge row. */
+.ios-app__phone {
+  width: min(320px, 78vw);
+  margin-inline: auto;
+}
+
+.ios-app__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.ios-app__chips .chip {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+}
+
+.ios-app__badge {
+  margin: 1.8rem 0 0;
+}
+
+@media (max-width: 860px) {
+  .ios-app__chips { margin-top: 1.5rem; }
+  .ios-app__phone { width: min(260px, 72vw); }
+}

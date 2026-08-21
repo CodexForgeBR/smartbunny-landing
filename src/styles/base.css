@@ -192,6 +192,11 @@ a {
   padding: 0.25rem 1rem;
 }
 
+/* real app icon rendered round, as on iOS */
+.brand-icon {
+  border-radius: 50%;
+}
+
 .cta-note {
   margin-top: 0.9rem;
   font-size: 0.9rem;

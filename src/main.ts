@@ -6,11 +6,14 @@ import '@fontsource/maven-pro/900.css';
 
 import './styles/tokens.css';
 import './styles/base.css';
+import './styles/phone-frame.css';
 import './styles/sections/nav.css';
 import './styles/sections/hero.css';
 import './styles/sections/marquee.css';
 import './styles/sections/bento.css';
+import './styles/sections/ios-app.css';
 import './styles/sections/agendamentos.css';
+import './styles/sections/cartoes.css';
 import './styles/sections/bunny-ia.css';
 import './styles/sections/investimentos.css';
 import './styles/sections/forecast.css';
@@ -27,6 +30,7 @@ import { setupParticles } from './lib/particles';
 import { setupMarquee } from './lib/marquee';
 import { setupNav } from './sections/nav';
 import { setupHero } from './sections/hero';
+import { setupAppStoreLinks } from './lib/app-store';
 import { setupForecast } from './sections/forecast';
 import { setupGoals } from './sections/goals';
 
@@ -40,6 +44,7 @@ if (!reducedMotion) {
   (window as Window & { __lenis?: Lenis }).__lenis = lenis;
 }
 
+setupAppStoreLinks();
 setupNav();
 setupSplitText();
 setupReveals();

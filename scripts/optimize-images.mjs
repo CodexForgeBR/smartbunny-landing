@@ -22,7 +22,11 @@ async function convert(src, dest, { width, quality = 80 } = {}) {
 for (const f of readdirSync(RAW).filter((f) => f.endsWith('.png'))) {
   const name = f.replace('.png', '.webp');
   const isMobile = f.includes('-mobile');
-  await convert(join(RAW, f), join(OUT, name), { width: isMobile ? 780 : 1880, quality: isMobile ? 78 : 80 });
+  const isIpad = f.includes('-ipad');
+  await convert(join(RAW, f), join(OUT, name), {
+    width: isMobile ? 780 : isIpad ? 1400 : 1880,
+    quality: isMobile ? 78 : 80,
+  });
 }
 
 for (const f of ['smartbunny-wordmark.png', 'login-logo-mascot.png', 'mascot-card.png']) {

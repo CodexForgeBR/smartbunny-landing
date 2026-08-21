@@ -21,10 +21,16 @@
   color: var(--text-muted);
 }
 
-.goals__card img {
+.goals__card > img {
   border-radius: 12px;
   border: 1px solid var(--line);
   margin-top: 1.2rem;
+}
+
+/* iPhone frame inside a card: crop at the card's bottom edge like the bento tall card */
+.goals__phone {
+  width: 68%;
+  margin: 1.4rem auto -45%;
 }
 
 .goals__ring {
